@@ -1,6 +1,6 @@
 import React from "react";
 import { setupIonicReact } from "@ionic/react";
-import { BrowserRouter, Route, Routes } from "react-router-dom";
+import { BrowserRouter, Route, Switch } from "react-router-dom";
 
 /* Core CSS required for Ionic components to work properly */
 import "@ionic/react/css/core.css";
@@ -31,7 +31,7 @@ function App() {
   return (
     <BrowserRouter>
       <AuthProvider>
-        <Routes>
+        <Switch>
           <Route exact path="/" element={<PrivateRoute />}>
             <Route exact path="/" element={<HomeScreen />} />
             <Route path="/quiz" element={<QuizScreen />} />;
@@ -39,7 +39,7 @@ function App() {
           </Route>
           <Route path="/auth/login" element={<LoginScreen />} />;
           <Route path="/auth/signUp" element={<SignUpScreen />} />;
-        </Routes>
+        </Switch>
       </AuthProvider>
     </BrowserRouter>
   );

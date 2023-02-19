@@ -1,5 +1,5 @@
 import React, { useContext, useState, useEffect } from 'react'
-import { supabase } from '.'
+import { supabase } from '../supabase'
 
 const AuthContext = React.createContext()
 
@@ -9,7 +9,7 @@ export function AuthProvider({ children }) {
   
     useEffect(() => {
       // Check active sessions and sets the user
-      const session = supabase.auth.session()
+      const {data: {session},} = await supabase.auth.getSession()
   
       setUser(session?.user ?? null)
       setLoading(false)

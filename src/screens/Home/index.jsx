@@ -4,7 +4,7 @@ import {IonButton, IonContent, IonPage, IonSlide, IonSlides,} from "@ionic/react
 
 import "./index.css"
 import {ModalMenu} from "./components/ModalMenu";
-import {useNavigate} from "react-router-dom";
+import {useHistory} from "react-router-dom";
 
 const slideOpts = {
     initialSlide: 1,
@@ -13,10 +13,10 @@ const slideOpts = {
 
 export function HomeScreen() {
 
-    const navigate = useNavigate()
+    const history = useHistory()
 
     function letsStartQuiz() {
-        navigate("/quiz", {
+        history.push("/quiz", {
             state: {
                 userId: "shohreh_userID",
             }
