@@ -23,14 +23,12 @@ import { QuizScreen } from "./screens/Home/screens/Quiz";
 import { ResultsScreen } from "./screens/Home/screens/Results";
 import { SignUpScreen } from "./screens/Home/screens/Auth/screens/SignUp";
 import { LoginScreen } from "./screens/Home/screens/Auth/screens/Login";
-import { AuthProvider } from "./contexts/Auth";
 
 setupIonicReact();
 
 function App() {
   return (
     <BrowserRouter>
-      <AuthProvider>
         <Switch>
           <Route exact path="/" element={<PrivateRoute />}>
             <Route exact path="/" element={<HomeScreen />} />
@@ -40,7 +38,6 @@ function App() {
           <Route path="/auth/login" element={<LoginScreen />} />;
           <Route path="/auth/signUp" element={<SignUpScreen />} />;
         </Switch>
-      </AuthProvider>
     </BrowserRouter>
   );
 }
